@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Visual Novel Recommendations</title>
+    <link rel="stylesheet" href="dist/all.css" type="text/css" />
+    <script type="text/x-template" id="template-home">
+      <div class="home">
+        <h1>Visual Novel Recommendations</h1>
+      </div>
+    </script>
+    <script type="text/x-template" id="template-home-group">
+      <a href="#/{key}" class="home-group hide">
+        <span class="heading">{name}</span>
+        <span class="description">{description}</span>
+      </a>
+    </script>
+    <script type="text/x-template" id="template-group">
+      <div class="group">
+        <h2>{name}</h3>
+        <p>{description}</p>
+        <ul class="category-list">
+          <li>Filter Categories:</li>
+          <li class="clear"><a href="#/{key}">&times; reset</a></li>
+        </ul>
+        <ul class="tag-list hide">
+          <li>Browse by tag:</li>
+          <li class="clear"><a href="#/{key}">&times; none</a></li>
+        </ul>
+      </a>
+    </script>
+    <script type="text/x-template" id="template-group-category">
+      <div class="group-category hide">
+        <h3>{name}</h3>
+        <ul data-category-id="{id}"></ul>
+      </div>
+    </script>
+    <script type="text/x-template" id="template-group-category-item">
+      <li class="hide" data-item-id="{id}">
+        <a href="#/{group}/{key}" class={className}>
+          <span class="cover" style="background-image: url('{image}')"></span>
+          <span class="details">
+            <span class="heading">{title}</span>
+            <span class="info-container">
+              <span class="info">Dev: <strong>{company.name}</strong></span>
+              <span class="info">Released: <strong>{year}</strong></span>
+              <span class="info">Length: <strong>{shortLengthDescription}</strong></span>
+              <span class="info">Routes: <strong>{shortRouteDescription}</strong></span>
+              <span class="info">Protagonist: <strong>{shortProtagonistDescription}</strong></span>
+            </span>
+            <span class="tags"></span>
+          </span>
+        </a>
+      </li>
+    </script>
+    <script type="text/x-template" id="template-item">
+      <div class="item">
+        <div class="image hide">
+          <img src="{image}" alt="{title}" />
+        </div>
+        <div class="details hide">
+          <h2><a target="_blank" href="http://vndb.org/v{id}">{title}</a></h2>
+          <h3>Original release: <a target="_blank" href="http://vndb.org/p{company.id}">{company.name}</a> &ndash; {year}</h3>
+          <h4>English release: {ReleaseDetails}</h4>
+          <p class="preserve-lines">{description}</p>
+          <dl>
+            <dt>Routes</dt><dd>{routeDescription}</dd>
+            <dt>Protagonist</dt><dd>{protagonistDescription}</dd>
+            <dt>Length</dt><dd>{lengthDescription}</dd>
+            <dt>Content</dt><dd>{ContentDescription}</dd>
+          </dl>
+          <ul class="tag-list">
+            <li>Tags:</li>
+          </ul>
+        </div>
+      </div>
+    </script>
+  </head>
+  <body>
+      <div id="breadcrumbs"></div>
+      <div id="container">
+         <noscript>
+             <h2>JavaScript is Disabled!</h2>
+             <p>
+                 The interactive version of the recommendations
+                 chart requires JavaScript to be enabled.
+                 If you don't want to enable it, you can
+                 view the image versions below:
+             </p>
+             <ul>
+                 <li><a href="https://i.imgur.com/zQujQCs.jpg">Reddit's /r/visualnovels recommendations</a></li>
+                 <li><a href="http://pasteboard.co/2xN3wp9J.jpg">4chan's /vg/ recommendations</a></li>
+                 <li><a href="https://i.imgur.com/dzXCyQY.png">Untranslated recommendations for Japanese learners</a></li>
+             </ul>
+         </noscript>
+      </div>
+      <script src="dist/all.js"></script>
+  </body>
+</html>
